@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.UserDetails" table="user_details" catalog="tracer_db">
+        <id name="userId" type="java.lang.Long">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="roleDetails" class="com.data.tracer.RoleDetails" fetch="select">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        <property name="userCode" type="string">
+            <column name="user_code" length="15" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="32" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="150" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="100" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="150" not-null="true" />
+        </property>
+        <property name="gender" type="char">
+            <column name="gender" length="1" not-null="true" />
+        </property>
+        <property name="dateOfBirth" type="date">
+            <column name="date_of_birth" length="10" not-null="true" />
+        </property>
+        <property name="maritalStatus" type="java.lang.Character">
+            <column name="marital_status" length="1" />
+        </property>
+        <property name="bloodGroup" type="string">
+            <column name="blood_group" length="15" />
+        </property>
+        <property name="dateOfAnniversary" type="date">
+            <column name="date_of_anniversary" length="10" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="256" not-null="true" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="50" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="50" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" length="50" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="50" />
+        </property>
+        <property name="pinCode" type="string">
+            <column name="pin_code" length="10" />
+        </property>
+        <property name="photoPath" type="string">
+            <column name="photo_path" length="256" />
+        </property>
+        <property name="primaryContactNo" type="string">
+            <column name="primary_contact_no" length="15" not-null="true" />
+        </property>
+        <property name="primaryEmail" type="string">
+            <column name="primary_email" length="150" not-null="true" />
+        </property>
+        <property name="secondaryContactNo" type="string">
+            <column name="secondary_contact_no" length="15" />
+        </property>
+        <property name="secondaryEmail" type="string">
+            <column name="secondary_email" length="150" />
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" not-null="true" />
+        </property>
+        <property name="imeiNo" type="string">
+            <column name="imei_no" length="16" />
+        </property>
+        <property name="officePhone" type="string">
+            <column name="office_phone" length="15" />
+        </property>
+        <property name="nearestPoliceStation" type="string">
+            <column name="nearest_police_station" length="150" />
+        </property>
+        <set name="userToCircleDetailses" table="user_to_circle_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserToCircleDetails" />
+        </set>
+        <set name="dashboardDetailses" table="dashboard_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.DashboardDetails" />
+        </set>
+        <set name="runnerVisittedLocationDetailses" table="runner_visitted_location_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.RunnerVisittedLocationDetails" />
+        </set>
+        <set name="userToZoneDetailses" table="user_to_zone_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserToZoneDetails" />
+        </set>
+        <set name="userPasswordHistoryDetailses" table="user_password_history_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserPasswordHistoryDetails" />
+        </set>
+        <set name="smsTemplateDetailses" table="sms_template_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.SmsTemplateDetails" />
+        </set>
+        <set name="userAuthCodeDetailses" table="user_auth_code_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserAuthCodeDetails" />
+        </set>
+        <set name="beatPlanUserAssignmentses" table="beat_plan_user_assignments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.BeatPlanUserAssignments" />
+        </set>
+        <set name="zoneDetailses" table="zone_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.ZoneDetails" />
+        </set>
+        <set name="userToHubDetailses" table="user_to_hub_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserToHubDetails" />
+        </set>
+        <set name="circleDetailses" table="circle_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.CircleDetails" />
+        </set>
+        <set name="userToRegionDetailses" table="user_to_region_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserToRegionDetails" />
+        </set>
+        <set name="userReportingToDetailses" table="user_reporting_to_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="reporting_to_user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserReportingToDetails" />
+        </set>
+        <set name="beatPlanDetailses" table="beat_plan_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.BeatPlanDetails" />
+        </set>
+        <set name="hubDetailses" table="hub_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.HubDetails" />
+        </set>
+        <set name="distributorDetailses" table="distributor_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.DistributorDetails" />
+        </set>
+        <set name="regionDetailses" table="region_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.RegionDetails" />
+        </set>
+        <set name="attendanceDetailses" table="attendance_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.AttendanceDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

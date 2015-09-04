@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+  <!-- ####################### START OF LAYOUTS #################### -->
+  <definition name="base.layout"
+    path="/pages/com/tracer/common/layout/base-layout.jsp">
+    <put name="title" value="TraceR" />
+    <put name="header" value="/pages/com/tracer/common/layout/header.jsp" />
+    <put name="body" value="/pages/com/tracer/common/layout/body.jsp" />
+    <put name="footer" value="/pages/com/tracer/common/layout/footer.jsp" />
+  </definition>
+
+  <!-- ####################### START OF GLOBAL PAGES #################### -->
+  <definition name="unauth.invalid.token.error.page" extends="base.layout">
+    <put name="title" value="TraceR : Invalid Token Error" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/exceptions/unauth-invalid-token-error.jsp" />
+  </definition>
+  <definition name="invalid.token.error.page" extends="base.layout">
+    <put name="title" value="TraceR : Invalid Token Error" />
+    <put name="body" value="/pages/com/tracer/exceptions/invalid-token-error.jsp" />
+  </definition>
+  <definition name="exception.page" extends="base.layout">
+    <put name="title" value="TraceR : Exception" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/exceptions/exceptionPage.jsp" />
+  </definition>
+  <definition name="session.inactive.page" extends="base.layout">
+    <put name="title" value="TraceR : Inactive Session" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/exceptions/inactive-session.jsp" />
+  </definition>
+  <definition name="info.or.error.page" extends="base.layout">
+    <put name="title" value="TraceR : Info / Error" />
+    <put name="body" value="/pages/com/tracer/exceptions/info-to-user.jsp" />
+  </definition>
+   <definition name="info.page" extends="base.layout">
+    <put name="title" value="TraceR : Info" />
+    <!-- <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" /> -->
+    <put name="body" value="/pages/com/tracer/exceptions/infoPage.jsp" />
+  </definition>
+ <!--  <definition name="copyright.page" extends="base.layout">
+    <put name="title" value="TraceR : Copyright" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/common/copyright.jsp" />
+  </definition> -->
+
+  <!-- ####################### LOGIN MODULE PAGES #################### -->
+  <definition name="login.page" extends="base.layout">
+    <put name="title" value="TraceR : Login" />
+    <put name="header" value="" />
+    <put name="body" value="/pages/com/tracer/common/login.jsp" />
+    <put name="footer" value="" />
+  </definition>
+  <definition name="forgot.password.page" extends="base.layout">
+    <put name="title" value="TraceR : Forgot Password Page" />
+    <put name="header" value="" />
+    <put name="body" value="/pages/com/tracer/common/forgot-password.jsp" />
+    <put name="footer" value="" />
+  </definition>
+  <definition name="email.sent.page" extends="base.layout">
+    <put name="title" value="TraceR : Email sent succesfully" />
+    <put name="header" value="" />
+    <put name="body" value="/pages/com/tracer/common/email-sent-success.jsp" />
+    <put name="footer" value="" />
+  </definition>
+  <definition name="link.invalid.page" extends="base.layout">
+    <put name="title" value="TraceR : Link Invalid Page" />
+    <put name="header" value="" />
+    <put name="body" value="/pages/com/tracer/common/link-invalid.jsp" />
+    <put name="footer" value="" />
+  </definition>
+  <definition name="reset.password.page" extends="base.layout">
+    <put name="title" value="TraceR : Reset Password Page" />
+    <put name="header" value="" />
+    <put name="body" value="/pages/com/tracer/common/reset-password.jsp" />
+    <put name="footer" value="" />
+  </definition>
+  <definition name="save.attendance.page" extends="base.layout">
+    <put name="title" value="TraceR : Save attendance" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/common/save-attendance.jsp" />
+  </definition>
+   <definition name="account.inactive.page" extends="base.layout">
+    <put name="title" value="TraceR : Account In-active" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/common/account-inactive.jsp" />
+  </definition>
+  <definition name="access.denied" extends="base.layout">
+    <put name="title" value="TraceR : Access Denied" />
+    <put name="header" value="/pages/com/tracer/common/layout/login-header.jsp" />
+    <put name="body" value="/pages/com/tracer/common/access-denied.jsp" />
+  </definition>
+  
+  <!-- ####################### HOME PAGE MODULE PAGES #################### -->
+  <definition name="cbm.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : CBM Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/cbm-dashboard.jsp" />
+  </definition>
+  <definition name="rbm.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : RBM Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/rbm-dashboard.jsp" />
+  </definition>
+  <definition name="zbm.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : ZBM Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/zbm-dashboard.jsp" />
+  </definition>
+  <definition name="asm.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : ASM Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/asm-dashboard.jsp" />
+  </definition>
+  <definition name="tsm.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : TSM Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/tsm-dashboard.jsp" />
+  </definition>
+  <definition name="tse.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : TSE Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/tse-dashboard.jsp" />
+  </definition>
+  <definition name="sa.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : System Admin Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/sa-dashboard.jsp" />
+  </definition>
+  <definition name="home.page" extends="base.layout">
+    <put name="title" value="TraceR : Home" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/home.jsp" />
+  </definition>
+   <definition name="deo.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : Data Entry Operator Activity Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/dashboad/deo-dashboard.jsp" />
+  </definition>
+
+  <!-- ####################### BEAT PLAN MODULE PAGES #################### -->
+  <definition name="add.distributor.beat.plan.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Distributor Beat Plan" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/add-distributor-beat-plan.jsp" />
+  </definition>
+  <definition name="add.runner.beat.plan.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Runner Beat Plan" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/add-runner-beat-plan.jsp" />
+  </definition>
+  <!-- <definition name="beat.plan.bulk.upload.page" extends="base.layout">
+    <put name="title" value="TraceR : Beat Plan Bulk Upload" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/beat-plan-bulk-upload.jsp" />
+  </definition> -->
+  <definition name="manage.beat.plans.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage Beat Plans" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/manage-beat-plans.jsp" />
+  </definition>
+  
+  <definition name="manage.runner.beat.plans.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage Runner Beat Plans" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/manage-runner-beat-plans.jsp" />
+  </definition>
+
+  <!-- ####################### CIRCLES MODULE PAGES #################### -->
+  <definition name="addcircle.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Circle" />
+    <put name="body" value="/pages/com/tracer/modules/circles/addcircle.jsp" />
+  </definition>
+
+  <definition name="manage.circles.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage Circles" />
+    <put name="body" value="/pages/com/tracer/modules/circles/manage-circles-details.jsp" />
+  </definition>
+
+  <!-- ####################### DISTRIBUTOR MODULE PAGES #################### -->
+  <definition name="add.distributor.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Distributor" />
+    <put name="body" value="/pages/com/tracer/modules/distributor/add-distributor.jsp" />
+  </definition>
+  <definition name="manage.distributors.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage Distributors" />
+    <put name="body" value="/pages/com/tracer/modules/distributor/manage-distributors.jsp" />
+  </definition>
+
+  <!-- ####################### REPORTS MODULE PAGES #################### -->
+  <definition name="reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/reports-dashboard.jsp" />
+  </definition>
+  <definition name="top.runners.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Top Runners report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/top-runners-report.jsp" />
+  </definition>
+    <definition name="attendance.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Attendance report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/attendance-report.jsp" />
+  </definition>
+    <definition name="visits.vs.beatplan.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Visits Vs Beatplan report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/visits-vs-beatplan-report.jsp" />
+  </definition>
+    <definition name="nonPerformed.runners.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Non Performing Runners report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/nonPerformed-runners-report.jsp" />
+  </definition>
+    <definition name="top.distributors.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Top Distributors report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/top-distributors-report.jsp" />
+  </definition>
+    <definition name="top.regions.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Top Regions report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/top-regions-report.jsp" />
+  </definition>
+    <definition name="top.zones.report.page" extends="base.layout">
+    <put name="title" value="Trac R : Reports : Top Zones report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/top-zones-report.jsp" />
+  </definition>
+  <definition name="top.hubs.report.page" extends="base.layout">
+    <put name="title" value="TraceR : Reports : Top Hubs report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/top-hubs-report.jsp" />
+  </definition>
+  <definition name="rbm.reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : RBM Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/rbm-reports-dashboard.jsp" />
+  </definition>
+  <definition name="zbm.reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : ZBM Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/zbm-reports-dashboard.jsp" />
+  </definition>
+  <definition name="asm.reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : ASM Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/asm-reports-dashboard.jsp" />
+  </definition>
+  <definition name="tsm.reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : TSM Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/tsm-reports-dashboard.jsp" />
+  </definition>
+   <definition name="cbm.reports.dashboard.page" extends="base.layout">
+    <put name="title" value="TraceR : CBM Reports Dashboard" />
+    <put name="body" value="/pages/com/tracer/modules/reports/cbm-reports-dashboard.jsp" />
+  </definition>
+  
+   
+  <definition name="hub.performance.report" extends="base.layout">
+    <put name="title" value="TraceR : Hub Performance Report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/hub-performance-report.jsp" />
+  </definition>
+   <definition name="zone.performance.report" extends="base.layout">
+    <put name="title" value="TraceR : Zone Performance Report" />
+    <put name="body" value="/pages/com/tracer/modules/reports/zone-performance-report.jsp" />
+  </definition>
+
+  <!-- ####################### TRACK MODULE PAGES #################### -->
+  <definition name="track.runners.page" extends="base.layout">
+    <put name="title" value="TraceR : Track Runners" />
+    <put name="body" value="/pages/com/tracer/modules/track/track-runners.jsp" />
+  </definition>
+  <definition name="track.team.leaders.page" extends="base.layout">
+    <put name="title" value="TraceR : Track Team Leaders" />
+    <put name="body" value="/pages/com/tracer/modules/track/track-team-leaders.jsp" />
+  </definition>
+  <definition name="runner.caf.collection.details.page"
+    extends="base.layout">
+    <put name="title" value="TraceR : Runner CAF Collection Details" />
+    <put name="body" value="/pages/com/tracer/modules/track/runner-caf-collection-details.jsp" />
+  </definition>
+  <definition name="team.leaders.caf.collection.details.page"
+    extends="base.layout">
+    <put name="title" value="TraceR : Team Leader CAF Collection Details" />
+    <put name="body" value="/pages/com/tracer/modules/track/team-leader-caf-collection-details.jsp" />
+  </definition>
+
+  <!-- ####################### USER MODULE PAGES #################### -->
+  <definition name="runner.add.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Runner" />
+    <put name="body" value="/pages/com/tracer/modules/users/add-runner.jsp" />
+  </definition>
+  <definition name="team.leader.add.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Team Leader" />
+    <put name="body" value="/pages/com/tracer/modules/users/add-team-leader.jsp" />
+  </definition>
+  <definition name="manager.add.page" extends="base.layout">
+    <put name="title" value="TraceR : Add Manager" />
+    <put name="body" value="/pages/com/tracer/modules/users/add-manager.jsp" />
+  </definition>
+  <definition name="manage.users.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage Users" />
+    <put name="body" value="/pages/com/tracer/modules/users/manage-users.jsp" />
+  </definition>
+  <definition name="edit.profile.page" extends="base.layout">
+    <put name="title" value="TraceR : Edit Profile" />
+    <put name="body" value="/pages/com/tracer/modules/users/edit-profile.jsp" />
+  </definition>
+  <definition name="change.password.page" extends="base.layout">
+    <put name="title" value="TraceR : Change Password" />
+    <put name="body" value="/pages/com/tracer/modules/users/change-password.jsp" />
+  </definition>
+  <definition name="manager.update.page" extends="base.layout">
+    <put name="title" value="TraceR : Update Manager" />
+    <put name="body" value="/pages/com/tracer/modules/users/update-manager.jsp" />
+  </definition>
+  <definition name="runner.update.page" extends="base.layout">
+    <put name="title" value="TraceR : Update Runner" />
+    <put name="body" value="/pages/com/tracer/modules/users/update-runner.jsp" />
+  </definition>
+  <definition name="team.leader.update.page" extends="base.layout">
+    <put name="title" value="TraceR : Update Team Leader" />
+    <put name="body" value="/pages/com/tracer/modules/users/update-team-leader.jsp" />
+  </definition>
+
+  <!-- ####################### NOTIFICATION MODULE PAGES #################### -->
+  <definition name="manage.sms.template.page" extends="base.layout">
+    <put name="title" value="TraceR : Manage SMS Templates" />
+    <put name="body" value="/pages/com/tracer/modules/notifications/manage-sms-template.jsp" />
+  </definition>
+  <definition name="add.sms.template.page" extends="base.layout">
+    <put name="title" value="TraceR : Add SMS Template" />
+    <put name="body" value="/pages/com/tracer/modules/notifications/add-sms-template.jsp" />
+  </definition>
+
+ <!-- ####################### UPLOAD MODULE PAGES #################### -->
+  <definition name="upload.online.cafs.page" extends="base.layout">
+    <put name="title" value="TraceR : Upload online CAFs" />
+    <put name="body" value="/pages/com/tracer/modules/upload/upload-online-caf.jsp" />
+  </definition>
+  <definition name="view.online.cafs.page" extends="base.layout">
+    <put name="title" value="TraceR : View CAFs uploaded online " />
+    <put name="body" value="/pages/com/tracer/modules/upload/view-uploaded-online-caf.jsp" />
+  </definition>
+  <definition name="verify.uploaded.online.cafs.page" extends="base.layout">
+    <put name="title" value="TraceR : Verify CAFs uploaded online" />
+    <put name="body" value="/pages/com/tracer/modules/upload/verify-uploaded-online-caf.jsp" />
+  </definition>
+  
+  <!-- ####################### DATA ENTRY MODULE PAGES #################### -->
+  <definition name="caf.data.entry.page" extends="base.layout">
+    <put name="title" value="TraceR : CAF Data Entry" />
+    <put name="body" value="/pages/com/tracer/modules/dataentry/caf-data-entry.jsp" />
+  </definition>
+  
+  <!-- ####################### BULK UPLOAD MODULE PAGES #################### -->
+  <definition name="beat.plan.bulk.upload.page" extends="base.layout">
+    <put name="title" value="TraceR : Beat Plan Bulk Upload" />
+    <put name="body" value="/pages/com/tracer/modules/beatplanbulkupload/beat-plan-bulk-upload.jsp"/>
+  </definition>
+  
+  <definition name="upload.beat.plan" extends="base.layout">
+    <put name="title" value="TraceR : Beat Plan Bulk Upload" />
+    <put name="body" value="/pages/com/tracer/modules/beatplanbulkupload/beat-plan-bulk-upload.jsp" />
+  </definition>
+  <definition name="manage.distributor.beat.plans.page" extends="base.layout">
+    <put name="title" value="TraceR : Beat Plan Bulk Upload" />
+    <put name="body" value="/pages/com/tracer/modules/beatplans/manage-beat-plans.jsp" />
+  </definition>
+  
+</tiles-definitions>

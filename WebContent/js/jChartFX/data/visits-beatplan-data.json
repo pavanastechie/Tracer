@@ -1,0 +1,46 @@
+{
+"visitsVsBeatPlanDetails":[
+    {
+        "beatPlanName":"fsfsf",
+        "plannedVisits": 4000,
+        "actualVisits": 3900,
+        "date": "03/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 1423,
+        "actualVisits": 1400,
+        "date": "04/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 4562,
+        "actualVisits": 4500,
+        "date": "05/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 1235,
+        "actualVisits": 1100,
+        "date": "06/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 1222,
+        "actualVisits": 1010,
+        "date": "07/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 1822,
+        "actualVisits": 1700,
+        "date": "02/02/2014"
+    },
+    {
+    "beatPlanName":"fsfsf",
+        "plannedVisits": 922,
+        "actualVisits": 800,
+        "date": "01/02/2014"
+    }
+]
+}

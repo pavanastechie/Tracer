@@ -1,0 +1,29 @@
+{
+    "topRegions": [
+        {
+            "regionName": "Hyderabad",
+            "cafCount": 90,
+            "circleName": "AP"
+        },
+        {
+            "regionName": "Hyderabad",
+            "cafCount": 80,
+            "circleName": "AP"
+        },
+        {
+            "regionName": "Hyderabad",
+            "cafCount": 60,
+            "circleName": "AP"
+        },
+        {
+            "regionName": "Hyderabad",
+            "cafCount": 40,
+            "circleName": "AP"
+        },
+        {
+            "regionName": "Hyderabad",
+            "cafCount": 100,
+            "circleName": "AP"
+        }
+    ]
+}

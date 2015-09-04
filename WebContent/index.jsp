@@ -1,0 +1,1 @@
+<%request.getRequestDispatcher("/login.do?method=showLogin").forward(request,response);%>

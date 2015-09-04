@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="sessionFactory"
+    class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="dataSource">
+      <ref bean="dataSource" />
+    </property>
+    <property name="mappingResources">
+      <list>
+       <value>/com/tracer/dao/model/hbm/UserPasswordHistoryDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/AttendanceDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/BeatPlanDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/BeatPlanDistributorAssignments.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/BeatPlanUserAssignments.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/CafCollectionDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/CafScanDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/CircleDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/DashboardDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/DistributorDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/DistributorToHubDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/HubDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/RegionDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/RoleDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/RunnerOfflineVisitDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/RunnerVisitDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/RunnerVisittedLocationDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/SmsCategoryDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/SmsTemplateDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserAuthCodeDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserReportingToDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserToCircleDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserToHubDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserToRegionDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UserToZoneDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/ZoneDetails.hbm.xml</value>
+        <value>/com/tracer/dao/model/hbm/UploadedCafDetails.hbm.xml</value>
+        
+      </list>
+    </property>
+
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">
+          org.hibernate.dialect.MySQLInnoDBDialect
+        </prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.cache.use_query_cache">true</prop>
+        <prop key="hibernate.cache.provider_class">
+          org.hibernate.cache.EhCacheProvider
+        </prop>
+        <prop key="hibernate.query.substitutions"></prop>
+        <prop key="hibernate.query.factory_class">
+          org.hibernate.hql.classic.ClassicQueryTranslatorFactory
+        </prop>
+        <prop key="hibernate.transaction.factory_class">
+          org.hibernate.transaction.JDBCTransactionFactory
+        </prop>
+        <prop key="hibernate.binary_or_blob">binary</prop>
+        <prop key="hibernate.jdbc.batch_size">15</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="transactionManager"
+    class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="beatPlansDAO" class="com.tracer.dao.persistence.impl.BeatPlansDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="circlesDAO" class="com.tracer.dao.persistence.impl.CirclesDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="distributorDAO" class="com.tracer.dao.persistence.impl.DistributorDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="loginDAO" class="com.tracer.dao.persistence.impl.LoginDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="notificationDAO" class="com.tracer.dao.persistence.impl.NotificationDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="reportsDAO" class="com.tracer.dao.persistence.impl.ReportsDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="trackDAO" class="com.tracer.dao.persistence.impl.TrackDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+
+  <bean id="userDAO" class="com.tracer.dao.persistence.impl.UserDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+ 
+  <bean id="uploadDAO" class="com.tracer.dao.persistence.impl.UploadDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="dataEntryDAO" class="com.tracer.dao.persistence.impl.DataEntryDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+  
+  <bean id="beatPlanBulkUploadDAO" class="com.tracer.dao.persistence.impl.BeatPlanBulkUploadDAOHibernate">
+    <property name="sessionFactory">
+      <ref local="sessionFactory" />
+    </property>
+  </bean>
+</beans>

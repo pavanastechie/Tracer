@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tracer.dao.model.DashboardDetails" table="dashboard_details" catalog="tracer_db">
+        <id name="dashboardDetailsId" type="java.lang.Long">
+            <column name="dashboard_details_id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="userDetails" class="com.tracer.dao.model.UserDetails" fetch="select" lazy="false">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <property name="attendanceReport" type="java.lang.String">
+            <column name="attendance_report" length="1" not-null="true" />
+        </property>
+        <property name="visitsVsBeatPlanReport" type="java.lang.String">
+            <column name="visits_vs_beat_plan_report" length="1" not-null="true" />
+        </property>
+        <property name="nonPerformedRunnersReport" type="java.lang.String">
+            <column name="non_performed_runners_report" length="1" not-null="true" />
+        </property>
+        <property name="topRunnersReport" type="java.lang.String">
+            <column name="top_runners_report" length="1" not-null="true" />
+        </property>
+        <property name="topDistributorsReport" type="java.lang.String">
+            <column name="top_distributors_report" length="1" not-null="true" />
+        </property>
+        <property name="topRegionsReport" type="java.lang.String">
+            <column name="top_regions_report" length="1" not-null="true" />
+        </property>
+        <property name="topZonesReport" type="java.lang.String">
+            <column name="top_zones_report" length="1" not-null="true" />
+        </property>
+        <property name="topHubsReport" type="java.lang.String">
+            <column name="top_hubs_report" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

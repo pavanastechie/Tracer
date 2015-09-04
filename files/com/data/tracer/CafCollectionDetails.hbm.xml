@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.CafCollectionDetails" table="caf_collection_details" catalog="tracer_db">
+        <id name="cafCollectionId" type="java.lang.Long">
+            <column name="caf_collection_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="runnerVisitDetails" class="com.data.tracer.RunnerVisitDetails" fetch="select">
+            <column name="runner_visit_id" not-null="true" />
+        </many-to-one>
+        <property name="totalCafCount" type="int">
+            <column name="total_caf_count" not-null="true" />
+        </property>
+        <property name="acceptedCafCount" type="int">
+            <column name="accepted_caf_count" not-null="true" />
+        </property>
+        <property name="rejectedCafCount" type="int">
+            <column name="rejected_caf_count" not-null="true" />
+        </property>
+        <property name="returnedCafCount" type="int">
+            <column name="returned_caf_count" not-null="true" />
+        </property>
+        <property name="distributorPhotoPath" type="string">
+            <column name="distributor_photo_path" length="256" not-null="true" />
+        </property>
+        <property name="dstributorSignPath" type="string">
+            <column name="dstributor_sign_path" length="256" not-null="true" />
+        </property>
+        <property name="runnerPhotoPath" type="string">
+            <column name="runner_photo_path" length="256" not-null="true" />
+        </property>
+        <property name="cafProviderMobNum" type="string">
+            <column name="caf_provider_mob_num" length="15" not-null="true" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="256" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

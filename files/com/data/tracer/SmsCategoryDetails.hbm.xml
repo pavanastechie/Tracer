@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.SmsCategoryDetails" table="sms_category_details" catalog="tracer_db">
+        <id name="smsCategoryId" type="java.lang.Long">
+            <column name="sms_category_id" />
+            <generator class="identity" />
+        </id>
+        <property name="smsCategoryName" type="string">
+            <column name="sms_category_name" length="100" not-null="true" />
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <set name="smsTemplateDetailses" table="sms_template_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sms_category_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.SmsTemplateDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

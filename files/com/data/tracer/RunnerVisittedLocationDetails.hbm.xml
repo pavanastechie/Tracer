@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.RunnerVisittedLocationDetails" table="runner_visitted_location_details" catalog="tracer_db">
+        <id name="runnerVisittedLocationId" type="java.lang.Long">
+            <column name="runner_visitted_location_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userDetails" class="com.data.tracer.UserDetails" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="lattitude" type="string">
+            <column name="lattitude" length="30" not-null="true" />
+        </property>
+        <property name="longitude" type="string">
+            <column name="longitude" length="30" not-null="true" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="100" not-null="true" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

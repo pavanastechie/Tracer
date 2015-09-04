@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.DashboardDetails" table="dashboard_details" catalog="tracer_db">
+        <id name="dashboardDetailsId" type="java.lang.Long">
+            <column name="dashboard_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userDetails" class="com.data.tracer.UserDetails" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <property name="attendanceReport" type="char">
+            <column name="attendance_report" length="1" not-null="true" />
+        </property>
+        <property name="visitsVsBeatPlanReport" type="char">
+            <column name="visits_vs_beat_plan_report" length="1" not-null="true" />
+        </property>
+        <property name="nonPerformedRunnersReport" type="char">
+            <column name="non_performed_runners_report" length="1" not-null="true" />
+        </property>
+        <property name="topRunnersReport" type="char">
+            <column name="top_runners_report" length="1" not-null="true" />
+        </property>
+        <property name="topDistributorsReport" type="char">
+            <column name="top_distributors_report" length="1" not-null="true" />
+        </property>
+        <property name="topRegionsReport" type="char">
+            <column name="top_regions_report" length="1" not-null="true" />
+        </property>
+        <property name="topZonesReport" type="char">
+            <column name="top_zones_report" length="1" not-null="true" />
+        </property>
+        <property name="topHubsReport" type="char">
+            <column name="top_hubs_report" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

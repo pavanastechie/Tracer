@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.RunnerVisitDetails" table="runner_visit_details" catalog="tracer_db">
+        <id name="runnerVisitId" type="java.lang.Long">
+            <column name="runner_visit_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="beatPlanUserAssignments" class="com.data.tracer.BeatPlanUserAssignments" fetch="select">
+            <column name="bp_user_assignment_id" not-null="true" />
+        </many-to-one>
+        <property name="visitNo" type="char">
+            <column name="visit_no" length="1" not-null="true">
+                <comment>1-First,2-Second,...</comment>
+            </column>
+        </property>
+        <property name="visitTimeStamp" type="timestamp">
+            <column name="visit_time_stamp" length="19" not-null="true" />
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <set name="cafCollectionDetailses" table="caf_collection_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="runner_visit_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.CafCollectionDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

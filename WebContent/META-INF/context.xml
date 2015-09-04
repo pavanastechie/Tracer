@@ -1,0 +1,17 @@
+<!-- ======================================================================= -->
+<!-- This file is deployed to Tomcat 5.5.x using the "deploy-tomcat" ant     -->
+<!-- task.                                                                   -->
+<!-- ======================================================================= -->
+<Context path="" allowLinking="false" debug="99" reloadable="true" antiJARLocking="true">
+    <Logger className="org.apache.catalina.logger.FileLogger" prefix="tracer_log." suffix=".txt" timestamp="true"/>
+
+    <Resource name="jdbc/TRACER" auth="Container" type="javax.sql.DataSource"
+      factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+      maxActive="20" maxIdle="30" maxWait="10000"
+      driverClassName="com.mysql.jdbc.Driver"
+      username="root" password=""
+      url="jdbc:mysql://localhost:3306/tracer_db?characterEncoding=utf-8&amp;useUnicode=true&amp;autoReconnect=true"
+      defaultAutoCommit="true" removeAbandoned="true"
+      removeAbandonedTimeout="60" logAbandoned="true"/>
+</Context>
+

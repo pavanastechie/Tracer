@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Tracer" default="war">
+  <property name="src.dir" value="src"/>
+  <property name="web.dir" value="WebContent"/>
+  <property name="build.dir" value="build/classes"/>
+  <property name="tomcat.home.dir" value="E:/apache-tomcat-7.0.27-windows-x86/apache-tomcat-7.0.27"/>
+  <property name="lib.dir" value="${web.dir}/WEB-INF/lib"/>
+  <property name="external.lib.dir" value="${tomcat.home.dir}/lib"/>
+  <property name="deploy.dir" value="${tomcat.home.dir}/webapps"/>
+  <property name="hbm.dir" value="/com/tracer/dao/model/hbm"/>
+  <property name="build.sysclasspath" value="last"/>
+  <property name="build.log.file" value="build_log.txt"/>
+  
+  <target name="init">
+    <mkdir dir="${build.dir}"/>
+  </target>
+    
+  <path id="libpath">
+    <fileset dir="${lib.dir}" includes="**/*.jar" />
+    <fileset dir="${external.lib.dir}" includes="**/*.jar" />
+  </path>
+  
+  <target name="compile" depends="init" >
+      <record name="${build.log.file}" action="start"/>
+    <javac srcdir="${src.dir}" destdir="${build.dir}" debug="true" source="1.7" target="1.7">
+      <compilerarg line="-deprecation" />
+      <compilerarg line="-Xlint:unchecked" />
+      <classpath refid="libpath" />
+    </javac>
+    
+    <copy todir="${build.dir}">
+      <fileset dir="${src.dir}">
+        <include name="ApplicationResources.properties"/>
+        <include name="log4j.xml"/>
+      </fileset>
+    </copy>
+    
+    <mkdir dir="${build.dir}${hbm.dir}"/>
+    
+    <copy todir="${build.dir}${hbm.dir}">
+      <fileset dir="${src.dir}${hbm.dir}">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <record name="${build.log.file}" action="stop"/>
+  </target>
+  
+  <target name="war" depends="compile">
+    <war destfile="TraceR.war" webxml="${web.dir}/WEB-INF/web.xml">
+      <fileset dir="${web.dir}"/>
+      <!-- <lib dir="${lib.dir}"/> -->
+      <classes dir="${build.dir}"/>
+    </war>
+  </target>
+  
+  <target name="clean">
+    <delete dir="build" />
+  </target>
+</project>

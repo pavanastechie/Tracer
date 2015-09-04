@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="txProxyTemplate" lazy-init="true"
+    class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+    <property name="transactionManager">
+      <ref bean="transactionManager" />
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="list*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="beatPlansManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.BeatPlansManagerImpl">
+        <property name="beatPlansDAO">
+          <ref bean="beatPlansDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="circlesManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.CirclesManagerImpl">
+        <property name="circlesDAO">
+          <ref bean="circlesDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="distributorManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.DistributorManagerImpl">
+        <property name="distributorDAO">
+          <ref bean="distributorDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="loginManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.LoginManagerImpl">
+        <property name="loginDAO">
+          <ref bean="loginDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="notificationManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.NotificationManagerImpl">
+        <property name="notificationDAO">
+          <ref bean="notificationDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="reportsManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.ReportsManagerImpl">
+        <property name="reportsDAO">
+          <ref bean="reportsDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="trackManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.TrackManagerImpl">
+        <property name="trackDAO">
+          <ref bean="trackDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="userManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.UserManagerImpl">
+        <property name="userDAO">
+          <ref bean="userDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+ 
+  <bean id="uploadManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.UploadManagerImpl">
+        <property name="uploadDAO">
+          <ref bean="uploadDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="dataEntryManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.DataEntryManagerImpl">
+        <property name="dataEntryDAO">
+          <ref bean="dataEntryDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="beatPlanBulkUploadManager" parent="txProxyTemplate">
+    <property name="target">
+      <bean class="com.tracer.service.impl.BeatPlanBulkUploadManagerImpl">
+        <property name="beatPlanBulkUploadDAO">
+          <ref bean="beatPlanBulkUploadDAO" />
+        </property>
+      </bean>
+    </property>
+    <property name="transactionAttributes">
+      <props>
+        <prop key="create*">PROPAGATION_REQUIRED</prop>
+        <prop key="retrieve*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="*">PROPAGATION_REQUIRED</prop>
+      </props>
+    </property>
+  </bean>
+  
+</beans>

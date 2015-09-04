@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.RunnerOfflineVisitDetails" table="runner_offline_visit_details" catalog="tracer_db">
+        <id name="runnerOfflineVisitId" type="java.lang.Long">
+            <column name="runner_offline_visit_id" />
+            <generator class="identity" />
+        </id>
+        <property name="offlineVisitCode" type="string">
+            <column name="offline_visit_code" length="15" not-null="true" />
+        </property>
+        <property name="distributorCode" type="string">
+            <column name="distributor_code" length="15" not-null="true" />
+        </property>
+        <property name="beatPlanCode" type="string">
+            <column name="beat_plan_code" length="15" not-null="true" />
+        </property>
+        <property name="runnerCode" type="string">
+            <column name="runner_code" length="15" not-null="true" />
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+        <property name="visitTimeStamp" type="timestamp">
+            <column name="visit_time_stamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

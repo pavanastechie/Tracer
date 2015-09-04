@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.UserToHubDetails" table="user_to_hub_details" catalog="tracer_db">
+        <id name="userToHubDetailsId" type="java.lang.Long">
+            <column name="user_to_hub_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="hubDetails" class="com.data.tracer.HubDetails" fetch="select">
+            <column name="hub_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userDetails" class="com.data.tracer.UserDetails" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

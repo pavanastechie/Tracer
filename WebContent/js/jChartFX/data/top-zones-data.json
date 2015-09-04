@@ -1,0 +1,29 @@
+{
+    "topZones": [
+        {
+            "zoneName": "Zone 6",
+            "cafCount": 90,
+            "regionName": "Hyderabad"
+        },
+        {
+            "zoneName": "Zone 5",
+            "cafCount": 80,
+            "regionName": "Hyderabad"
+        },
+        {
+            "zoneName": "Zone 4",
+            "cafCount": 70,
+            "regionName": "Hyderabad"
+        },
+        {
+            "zoneName": "Zone 3",
+            "cafCount": 100,
+            "regionName": "Hyderabad"
+        },
+        {
+            "zoneName": "Zone 2",
+            "cafCount": 40,
+            "regionName": "Hyderabad"
+        }
+    ]
+}

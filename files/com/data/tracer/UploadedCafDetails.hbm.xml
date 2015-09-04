@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.UploadedCafDetails" table="uploaded_caf_details" catalog="tracer_db">
+        <id name="uploadCafDetailsId" type="long">
+            <column name="upload_caf_details_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="distributorDetails" class="com.data.tracer.DistributorDetails" fetch="select">
+            <column name="distributor_id" not-null="true" />
+        </many-to-one>
+        <property name="mobileNo" type="string">
+            <column name="mobile_no" length="10" not-null="true" />
+        </property>
+        <property name="orderNumber" type="string">
+            <column name="order_number" length="50" not-null="true" />
+        </property>
+        <property name="subAgentCode" type="string">
+            <column name="sub_agent_code" length="50" />
+        </property>
+        <property name="cafType" type="string">
+            <column name="caf_type" length="10">
+                <comment>DSA,DMA,NEB,MI,EBU</comment>
+            </column>
+        </property>
+        <property name="connectionStatus" type="string">
+            <column name="connection_status" length="20">
+                <comment>New Connection, Port In</comment>
+            </column>
+        </property>
+        <property name="cafStatus" type="char">
+            <column name="caf_status" length="1" not-null="true">
+                <comment>0-New,1-Accepted, 2-Rejected, 3-Customer not interested,4-Incomplete documentation</comment>
+            </column>
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true">
+                <comment>0-Inactive,1-Active</comment>
+            </column>
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

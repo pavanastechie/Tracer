@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.ZoneDetails" table="zone_details" catalog="tracer_db">
+        <id name="zoneId" type="java.lang.Long">
+            <column name="zone_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="regionDetails" class="com.data.tracer.RegionDetails" fetch="select">
+            <column name="region_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userDetails" class="com.data.tracer.UserDetails" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="zoneName" type="string">
+            <column name="zone_name" length="100" not-null="true" />
+        </property>
+        <property name="zoneCode" type="string">
+            <column name="zone_code" length="15" not-null="true" />
+        </property>
+        <property name="status" type="char">
+            <column name="status" length="1" not-null="true">
+                <comment>0-Inactive,1-Active</comment>
+            </column>
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" not-null="true" />
+        </property>
+        <set name="hubDetailses" table="hub_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="zone_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.HubDetails" />
+        </set>
+        <set name="userToZoneDetailses" table="user_to_zone_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="zone_id" not-null="true" />
+            </key>
+            <one-to-many class="com.data.tracer.UserToZoneDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

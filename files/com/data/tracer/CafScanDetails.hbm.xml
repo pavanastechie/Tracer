@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jun, 2015 3:57:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.data.tracer.CafScanDetails" table="caf_scan_details" catalog="tracer_db">
+        <id name="cafScanDetailsId" type="java.lang.Long">
+            <column name="caf_scan_details_id" />
+            <generator class="identity" />
+        </id>
+        <property name="cafCollectionDetailsId" type="long">
+            <column name="caf_collection_details_id" not-null="true" />
+        </property>
+        <property name="cafBarCode" type="string">
+            <column name="caf_bar_code" length="128" not-null="true" />
+        </property>
+        <property name="cafScanImagePath" type="string">
+            <column name="caf_scan_image_path" length="256" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

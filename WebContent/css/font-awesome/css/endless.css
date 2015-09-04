@@ -1,0 +1,140 @@
+.grey-container {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-color: #DFDFDF;
+	border-image: none;
+	border-style: solid;
+	border-width: 1px 0;
+	padding: 15px;
+}
+
+.shortcut-link {
+	background-color: #16A085;	
+}
+.shortcut-link1 {
+	background-color: #F39C12;	
+}
+.shortcut-link2 {	
+	background-color: #2980B9;		
+}
+.shortcut-link3 {	
+	background-color: #2C3E50;		
+}
+
+.shortcut-link3 {
+	display: inline-block;
+	margin-right: 3px;
+	text-shadow: 0 1px 0 #FFFFFF;
+	transition: all 0.2s ease 0s;
+	text-decoration: none !important;
+	background-color: #8E44AD;
+	padding: 10px;
+}
+.shortcut-link .shortcut-icon {
+	font-size: 30px;
+	position: relative;
+	text-decoration: none !important;
+	border-bottom: 0 !important;
+}
+
+.shortcut-link .text {
+	color: #626262;
+	display: inline-block;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: -5px;
+	text-decoration: none !important;
+	border: 0 !important;
+}
+
+*,*:before,*:after {
+	-moz-box-sizing: border-box;
+}
+
+*,*:before,*:after {
+	-moz-box-sizing: border-box;
+}
+
+.shortcut-link:hover {
+	color: #626262;
+	text-decoration: none;
+	transition: all 0.2s ease 0s;
+	text-decoration: none;
+}
+
+a:focus,a:hover {
+	color: #999999;
+	text-decoration: none !important;
+	transition: all 0.2s ease 0s;
+}
+
+a:hover,a:focus {
+	color: #2A6496;
+	text-decoration: underline;
+}
+
+a:active,a:hover {
+	outline: 0 none;
+}
+
+.fa-home {
+    color: #FFFFFF;
+    font-size: 30px;
+    position: relative;
+}
+
+.fa-list-alt {
+	color: #FFF;
+	position: relative;
+	font-size: 26px;
+}
+.fa-exclamation{
+	color: #FFF;
+	position: relative;
+	top: 5px;
+	font-size: 20px;
+}
+
+.fa-caret-down{
+	color: #FFF;
+	position: relative;
+	top: 5px;
+	font-size: 10px;
+}
+.shortcut-alert {
+	text-decoration: none !important;
+	font-size: 14px;
+	color: #626262;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-weight: bold;
+}
+
+.text {
+	text-decoration: none !important;
+	font-size: 14px;
+	color: #626262;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-weight: bold;
+}
+
+.fa-users {
+	color: #FFF;
+	position: relative;
+	font-size: 26px;
+}
+.fa-cogs {
+	color: #FFF;
+	position: relative;
+	font-size: 26px;
+}
+
+#breadcrumbs .fa-home {
+	color: #FFFFFF;
+	font-size: 15px;
+	position: relative;
+	right: 2px;
+	top: 1px;
+}

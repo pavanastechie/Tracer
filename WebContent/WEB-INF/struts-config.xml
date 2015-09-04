@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="beatPlansForm" type="com.tracer.webui.presentation.form.BeatPlansForm" />
+    <form-bean name="circlesForm" type="com.tracer.webui.presentation.form.CirclesForm" />
+    <form-bean name="dashboardForm" type="com.tracer.webui.presentation.form.DashboardForm" />
+    <form-bean name="distributorForm" type="com.tracer.webui.presentation.form.DistributorForm" />
+    <form-bean name="loginForm" type="com.tracer.webui.presentation.form.LoginForm" />
+        <form-bean name="forgotpasswordFrom" type="com.tracer.webui.presentation.form.ForgotPasswordForm" />
+    <form-bean name="reportsForm" type="com.tracer.webui.presentation.form.ReportsForm" />
+    <form-bean name="notificationForm" type="com.tracer.webui.presentation.form.NotificationForm" />
+    <form-bean name="trackForm" type="com.tracer.webui.presentation.form.TrackForm" />
+    <form-bean name="userForm" type="com.tracer.webui.presentation.form.UserForm" />
+    <form-bean name="uploadForm" type="com.tracer.webui.presentation.form.UploadForm" />
+    <form-bean name="dataEntryForm" type="com.tracer.webui.presentation.form.DataEntryForm" />
+    <form-bean name="beatPlanBulkUploadForm" type="com.tracer.webui.presentation.form.BeatPlanBulkUploadForm" />
+  </form-beans>
+  
+   <global-exceptions>
+	    <exception key="error.ioexception.message" type="java.io.IOException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.nullexception.message" type="java.lang.NullPointerException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.classnotfoundexception.message" type="java.lang.ClassNotFoundException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.filenotfoundexception.message" type="java.io.FileNotFoundException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.invocationtargetexception.message" type="java.lang.reflect.InvocationTargetException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.aiboexception.message" type="java.lang.ArrayIndexOutOfBoundsException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.noclassdefexception.message" type="java.lang.NoClassDefFoundError" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.numberformatexception.message" type="java.lang.NumberFormatException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+	    <exception key="error.illegalargumentexception.message" type="java.lang.IllegalArgumentException" handler="com.tracer.common.GlobalExceptionHandler" path="exception.page" />
+    </global-exceptions>
+
+  <global-forwards>
+    <forward name="unAuthInvalidTokenErrorPage" path="unauth.invalid.token.error.page" redirect="false"/>
+    <forward name="invalidTokenErrorPage" path="invalid.token.error.page" redirect="false"/>
+    <forward name="sessionInactivePage" path="session.inactive.page" redirect="false"/>
+    <forward name="infoOrErrorPage" path="info.or.error.page" redirect="false"/>
+    <forward name="infoPage" path="info.page" redirect="false"/>
+  </global-forwards>
+
+  <action-mappings>
+
+  <action path="/beatPlans" type="com.tracer.webui.presentation.action.BeatPlansAction" name="beatPlansForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="addDistributorBeatPlanPage" path="add.distributor.beat.plan.page" redirect="false"/>
+    <forward name="addRunnerBeatPlanPage" path="add.runner.beat.plan.page" redirect="false"/>
+    <!-- <forward name="beatPlanBulkUploadPage" path="beat.plan.bulk.upload.page" redirect="false"/> -->
+    <forward name="manageBeatPlansPage" path="manage.beat.plans.page" redirect="false"/>
+    <forward name="manageRunnerBeatPlansPage" path="manage.runner.beat.plans.page" redirect="false"/>
+  </action>
+  
+  <action path="/beatPlanBulkUpload" type="com.tracer.webui.presentation.action.BeatPlanBulkUploadAction" name="beatPlanBulkUploadForm" scope="session" parameter="method" unknown="false" validate="false">
+      <forward name="beatPlanBulkUploadPage" path="beat.plan.bulk.upload.page" redirect="false"/>
+      <forward name="uploadBeatPlan" path="upload.beat.plan" redirect="false"/>
+      <forward name="manageDistributorBeatPlansPage" path="manage.distributor.beat.plans.page" redirect="false"/>
+      <forward name="sessionInactivePage" path="session.inactive.page" redirect="false"/>
+  </action>
+  
+  <action path="/uploadBeatPlan" type="com.tracer.webui.presentation.action.BulkUploadAction" name="bulkUploadForm" scope="session" parameter="method" unknown="false" validate="false">
+      <forward name="uploadBeatPlan" path="upload.beat.plan" redirect="false"/>
+      <forward name="manageBeatPlansPage" path="manage.beat.plans.page" redirect="false"/>
+  </action>
+
+  <action path="/circles" type="com.tracer.webui.presentation.action.CirclesAction" name="circlesForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="addCircle" path="addcircle.page" redirect="false"/>
+    <forward name="manageCirclesPage" path="manage.circles.page" redirect="false"/>
+  </action>
+  
+  <action path="/dashboard" type="com.tracer.webui.presentation.action.DashboardAction" name="dashboardForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="cbmDashboardPage" path="cbm.dashboard.page" redirect="false"/>
+    <forward name="rbmDashboardPage" path="rbm.dashboard.page" redirect="false"/>
+    <forward name="zbmDashboardPage" path="zbm.dashboard.page" redirect="false"/>
+    <forward name="asmDashboardPage" path="asm.dashboard.page" redirect="false"/>
+    <forward name="tsmDashboardPage" path="tsm.dashboard.page" redirect="false"/>
+    <forward name="tseDashboardPage" path="tse.dashboard.page" redirect="false"/>
+    <forward name="saDashboardPage" path="sa.dashboard.page" redirect="false"/>
+    <forward name="homePage" path="home.page" redirect="false"/>
+    <forward name="deoDashboardPage" path="deo.dashboard.page" redirect="false"/>
+  </action>
+  
+  <action path="/distributor" type="com.tracer.webui.presentation.action.DistributorAction" name="distributorForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="addDistributorPage" path="add.distributor.page" redirect="false"/>
+    <forward name="manageDistributorsPage" path="manage.distributors.page" redirect="false"/>
+    <forward name="showManageDistributorsMethodForward" path="/distributor.do?method=showManageDistributorsPage" redirect="false"/>
+  </action>
+
+  <action path="/login" type="com.tracer.webui.presentation.action.LoginAction" name="loginForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="showLoginMethodForward" path="/login.do?method=showLogin" redirect="false"/>
+    <forward name="showDashboardMethodForward" path="/dashboard.do?method=showDashboard" redirect="false"/>
+    <forward name="saveAttendancePage" path="save.attendance.page" redirect="false"/>
+    <forward name="accountInactivePage" path="account.inactive.page" redirect="false"/>
+    <forward name="accessDenied" path="access.denied" redirect="false"/>
+   <!--   <forward name="copyrightPage" path="copyright.page" redirect="false"/> -->
+  </action>
+  
+  <action path="/forgotpassword" type="com.tracer.webui.presentation.action.ForgotPasswordAction" name="forgotpasswordFrom" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="forgotpasswordPage" path="forgot.password.page" redirect="false"/>
+    <forward name="emailSentSuccess" path="email.sent.page" redirect="false"/>
+     <forward name="linkInvalidPage" path="link.invalid.page" redirect="false"/>
+     <forward name="loginPage" path="login.page" redirect="false"/>
+      <forward name="resetPasswordPage" path="reset.password.page" redirect="false"/>
+   <!--   <forward name="copyrightPage" path="copyright.page" redirect="false"/> -->
+  </action>
+  
+  <action path="/notification" type="com.tracer.webui.presentation.action.NotificationAction" name="notificationForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="manageSmsTemplate" path="manage.sms.template.page" redirect="false"/>
+    <forward name="addSmsTemplate" path="add.sms.template.page" redirect="false"/>
+  </action>
+  
+  <action path="/reports" type="com.tracer.webui.presentation.action.ReportsAction" name="reportsForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="reportsDashboardPage" path="reports.dashboard.page" redirect="false"/>
+    <forward name="topRunnersReportPage" path="top.runners.report.page" redirect="false"/>
+    <forward name="attendanceReportPage" path="attendance.report.page" redirect="false"/>
+    <forward name="visitsVsBeatplanReportPage" path="visits.vs.beatplan.report.page" redirect="false"/>
+    <forward name="nonPerformedRunnersReportPage" path="nonPerformed.runners.report.page" redirect="false"/>
+    <forward name="topDistributorsReportPage" path="top.distributors.report.page" redirect="false"/>
+    <forward name="topRegionsReportPage" path="top.regions.report.page" redirect="false"/>
+    <forward name="topZonesReportPage" path="top.zones.report.page" redirect="false"/>
+    <forward name="topHubsReportPage" path="top.hubs.report.page" redirect="false"/>
+    <forward name="rbmReportsDashboardPage" path="rbm.reports.dashboard.page" redirect="false"/>
+    <forward name="zbmReportsDashboardPage" path="zbm.reports.dashboard.page" redirect="false"/>
+    <forward name="asmReportsDashboardPage" path="asm.reports.dashboard.page" redirect="false"/>
+    <forward name="tsmReportsDashboardPage" path="tsm.reports.dashboard.page" redirect="false"/>
+    <forward name="cbmReportsDashboardPage" path="cbm.reports.dashboard.page" redirect="false"/>
+    
+    
+    <forward name="hubPerformanceReport" path="hub.performance.report" redirect="false"/>
+    <forward name="zonePerformanceReport" path="zone.performance.report" redirect="false"/>
+  </action>
+  
+  <action path="/track" type="com.tracer.webui.presentation.action.TrackAction" name="trackForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="trackRunnersPage" path="track.runners.page" redirect="false"/>
+    <forward name="trackTeamLeaderPage" path="track.team.leaders.page" redirect="false"/>
+    <forward name="runnerCAFCollectionDetailsPage" path="runner.caf.collection.details.page" redirect="false"/>
+    <forward name="teamLeaderCAFCollectionDetailsPage" path="team.leaders.caf.collection.details.page" redirect="false"/>
+  </action>
+  
+  <action path="/user" type="com.tracer.webui.presentation.action.UserAction" name="userForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="addRunnerPage" path="runner.add.page" redirect="false"/>
+    <forward name="addTeamLeaderPage" path="team.leader.add.page" redirect="false"/>
+    <forward name="addManagerPage" path="manager.add.page" redirect="false"/>
+    <forward name="manageUsersPage" path="manage.users.page" redirect="false"/>
+    <forward name="editProfilePage" path="edit.profile.page" redirect="false"/>
+    <forward name="changePasswordPage" path="change.password.page" redirect="false"/>
+    <forward name="updateManagerPage" path="manager.update.page" redirect="false"/>
+    <forward name="updateRunnerPage" path="runner.update.page" redirect="false"/>
+    <forward name="updateTeamLeaderPage" path="team.leader.update.page" redirect="false"/>
+  </action>
+  
+  <action path="/addRunner" type="com.tracer.webui.presentation.action.UserAction" name="userForm" scope="session" parameter="method" unknown="false" validate="false">
+  </action>
+
+  <action path="/upload" type="com.tracer.webui.presentation.action.UploadAction" name="uploadForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="uploadOnlineCafsPage" path="upload.online.cafs.page" redirect="false"/>
+    <forward name="viewOnlineCafsPage" path="view.online.cafs.page" redirect="false"/>
+    <forward name="verifyUploadedOnlineCafsPage" path="verify.uploaded.online.cafs.page" redirect="false"/>
+  </action>
+  
+  <action path="/dataEntry" type="com.tracer.webui.presentation.action.DataEntryAction" name="dataEntryForm" scope="session" parameter="method" unknown="false" validate="false">
+    <forward name="loginPage" path="login.page" redirect="false"/>
+    <forward name="cafDataEntryPage" path="caf.data.entry.page" redirect="false"/>
+    <forward name="deoDashboardPage" path="deo.dashboard.page" redirect="false"/>
+  </action>
+
+  </action-mappings>
+
+  <controller maxFileSize="10M" />
+
+  <message-resources parameter="ApplicationResources"/>
+
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+  </plug-in>
+
+</struts-config>
